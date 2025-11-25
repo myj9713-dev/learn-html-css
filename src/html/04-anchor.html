@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>하이퍼링크 | Likelion Bootcamp</title>
+  </head>
+  <body>
+    <a href="/index.html">Index로 이동</a>
+    <a href="#card-2">2번 카드로 이동</a>
+    <hr />
+    <!-- title은 툴팁으로 작용 -->
+    <!-- target에서 언더 바는 새로운 탭에서 웹을 보여주겠다는 의미 -->
+    <!--likelion으로 타겟해놓으면 다른 창이 없으면 새로 창 열리고, 창이 새로 열려있으면 그 창에서 열림-->
+    <!--rel(참조) 에서 noopener noreferrer는 보안 관련 옵션임-->
+    <h1>하이퍼링크</h1>
+    <h2>UI 실습</h2>
+    <div class="card" id="card-1">
+      <figure>
+        <img src="/src/assets/thumbnail/meeting-room.jpg" alt="" />
+        <figcaption>
+          <p>RESPONSIVE WEB<br />DESIGN STRATEGIES</p>
+          <p>반응형 웹디자인 전략</p>
+        </figcaption>
+      </figure>
+      <a href="https://bootcamp.likelion.net/school/kdt-frontend-17th" target="_blank" rel="noopener noreferrer">강의정보</a>
+    </div>
+    <div class="card" id="card-2">
+    <hr />
+
+    <p><a href="https://bootcamp.likelion.net/school/kdt-frontend-17th" target="_blank" rel="noopener noreferrer">강의정보</a></p>
+    <hr />
+    <p><a href="https://bootcamp.likelion.net/">멋쟁이 사자처럼</a> 프론트엔드 부트캠프 16기 시작!</p>
+    <p><a href="https://github.com/" title="Github로 이동합니다." target="_blank" rel="noopener noreferrer">Github</a></p>
+    <p><a href="https://www.naver.com/" title="네이버로 이동합니다." target="likelion" rel="noopener noreferrer">네이버</a></p>
+    <p><a href="https://www.daum.com/" title="다음로 이동합니다." target="likelion" rel="noopener noreferrer">다음</a></p>
+
+    <!--download 는 논리속성. 웹에서 텍스트 누르면 다운로드됨-->
+    <h2>PDF 파일 링크</h2>
+    <p><a href="/src/assets/pdf/google-seo-guide-ko.pdf" download>구글 SEO 가이드</a></p>
+
+    <!--mailto뒤에 :는 약속.메일 클라이언트 방식. 문의하고 싶으면 메일로 ㄱㄱ 같은-->
+    <!--폰번호는 모바일에서 바로 연결. 컴터에서는 바로 연결 안됨-->
+    <h2>이메일 링크</h2>
+    <p><a href="mailto:seulbinim@gmail.com?subject=문의사항">슬비쌤 이메일</a></p>
+    <h2>전화번호 링크</h2>
+    <p>고객센터 <a href="tel:01023456789">010-2345-6789</a></p>
+
+    <!--이미지를 클릭해야 동작함. pdf 다운도 되고, 이미지도 읽어줌-->
+    <h2>이미지 링크</h2>
+    <p>
+      <a href="/src/assets/pdf/wai-aria.pdf" download>
+        <img src="/src/assets/cafew/brochure-@1x.png" alt="WAI-ARIA 브로슈어" />
+      </a>
+    </p>
+  </body>
+</html>
