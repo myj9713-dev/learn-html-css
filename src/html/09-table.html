@@ -1,7 +1,8 @@
-<!doctype html>
-<html lang="ko-KR">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-KR" lang="ko-KR">
   <head>
-    <meta charset="UTF-8" />
+     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <!--<meta charset="UTF-8" />-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>테이블 관련 요소 | Likelion Bootcamp</title>
     <style>
@@ -21,14 +22,13 @@ border-collapse: collapse;
     <a href="/index.html">Index로 이동</a>
     <hr />
     <h1>테이블 관련 요소</h1>
-<table>
+<table summary="학습시간, 난이도, 교육비 지원, 평가항목, 수료기준, 정원, 교재 정보 등을 나타낸 표">
 <caption>
   <span>입문자를 위한 Git과 HTML&CSS 과정</span>
-<span class="sr-only">학습시간, 난이도, 교육비 지원, 평가항목, 수료기준, 정원, 교재 정보 등을 나타낸 표 </span>
 </caption>
 <colgroup>
-<col span="2" />
-<col span="2" />
+<col span="2">
+<col span="2">
 </colgroup>
  <tr>
 <th scope="row">학습시간</th>
@@ -56,84 +56,76 @@ border-collapse: collapse;
   </td>
 </tr>
 </table>  
-
-
-
-
-
-    <hr />
-    <table border="1">
-      <caption class="sr-only">
-        프론트엔드 시험 결과
-      </caption>
-      <colgroup>
-        <col class="name" />
-        <col span="2" class="html-css" />
-        <col class="js" />
-      </colgroup>
-      <thead>
-        <tr>
-          <th scope="col">이름</th>
-          <th scope="col">HTML</th>
-          <th scope="col">CSS</th>
-          <th scope="col">Javascript</th>
-        </tr>
-      </thead>
-      <thead>
-        <tbody>
+<hr />
+<table>
+       <caption class="sr-only">
+          프론트엔드 시험 결과
+        </caption>
+        <colgroup>
+          <col class="name" />
+          <col span="2" class="html-css" />
+          <col class="js" />
+        </colgroup>
+        <thead>
           <tr>
-            <td>박연하</td>
-            <td>100</td>
-            <td>90</td>
-            <td>95</td>
+            <th scope="col">이름</th>
+            <th scope="col">HTML</th>
+            <th scope="col">CSS</th>
+            <th scope="col">Javascript</th>
           </tr>
-          <tr>
-            <td>백희연</td>
-            <td>50</td>
-            <td>90</td>
-            <td>100</td>
-          </tr>
-          <tr>
-            <td>이찬미</td>
-            <td>20</td>
-            <td>100</td>
-            <td>100</td>
-          </tr>
-        </tbody>
+        </thead>
         <tfoot>
           <tr>
-            <th>합계</th>
+            <th scope="row">합계</th>
             <td colspan="3">10000</td>
           </tr>
         </tfoot>
-      </thead>
-    </table>
+          <tbody>
+            <tr>
+              <td>박연하</td>
+              <td>100</td>
+              <td>90</td>
+              <td>95</td>
+            </tr>
+            <tr>
+              <td>백희연</td>
+              <td>50</td>
+              <td>90</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>이찬미</td>
+              <td>20</td>
+              <td>100</td>
+              <td>100</td>
+            </tr>
+          </tbody>
+</table>    
     <hr />
-    <table border="1">
+    <table>
       <tr>
-        <th scope="col">이름</th>
-        <th scope="col">HTML</th>
-        <th scope="col">CSS</th>
-        <th scope="col">Javascript</th>
+        <th scope="col" id="name">이름</th>
+        <th scope="col" id="markup">HTML</th>
+        <th scope="col" id="style">CSS</th>
+        <th scope="col" id="script">Javascript</th>
       </tr>
       <tr>
-        <th scope="row">조재권</th>
-        <td>100</td>
-        <td>90</td>
-        <td>95</td>
+        <th scope="row" id="name-jo">조재권</th>
+        <td headers="name-jo markup">100</td>
+        <td headers="name-jo style">90</td>
+        <td headers="name-jo script">95</td>
       </tr>
       <tr>
-        <th scope="row">사민재</th>
-        <td>50</td>
-        <td>90</td>
-        <td>100</td>
+        <th scope="row" id="name-sa">사민재</th>
+        <td headers="name-sa markup">50</td>
+        <td headers="name-sa style">90</td>
+        <td headers="name-sa script">100</td>
       </tr>
       <tr>
-        <th scope="row">김효경</th>
-        <td>20</td>
-        <td>100</td>
-        <td>100</td>
+        <th scope="row" id="name-kim">김효경</th>
+        <td headers="name-kim style">100</td>
+        <td headers="name-kim script">100</td>
+        <td headers="name-kim markup">20</td>
       </tr>
     </table>
-  </body>
 </html>
