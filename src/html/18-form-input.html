@@ -9,11 +9,10 @@
     <a href="/index.html">Index로 이동</a>
     <hr />
     <h1>폼 input 요소</h1>
-
+    <!--한 줄 입력 서식-->
     <form action="">
       <fieldset>
         <legend>필수 입력</legend>
-        <!--이 안에 내용은 다 필수로 입력해야하는 서식-->
         <div>
           <label for="userName">이름</label>
           <input type="text" id="userName" />
@@ -26,5 +25,65 @@
         </div>
       </fieldset>
     </form>
+    <hr />
+    <form id="inputForm" action="https://formspree.io/f/xeqwwbwk" method="post">
+      <!--텍스트 입력 서식-->
+      <div>
+        <label for="userID">이름</label>
+        <input type="text" id="userID" placeholder="예)홍길동" name="name" />
+      </div>
+      <!--비밀번호 입력 서식-->
+      <div>
+        <label for="userpwd">비밀번호</label>
+        <input type="password" pattern="^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$" id="userpwd" required placeholder="최소 8자리 이상" name="pwd" />
+      </div>
+      <!--이메일 입력 서식-->
+      <label for="userEmail">이메일</label>
+      <input type="email" id="userEmail" required placeholder="예)guest@likelion.net" name="email" />
+      <!--전화번호 입력 서식-->
+      <div>
+        <label for="userPhone">전화번호</label>
+        <input type="tel" pattern="[0-9]{10}" id="userPhone" placeholder="예)010-0000-0000" name="phone" />
+      </div>
+      <!--URL 입력 서식-->
+      <div>
+        <label for="userSns">SNS</label>
+        <input type="url" id="userSns" placeholder="예)https://www.facebook.com" name="sns" />
+        <!--검색어 입력 서식-->
+        <div>
+          <label for="search">검색어</label>
+          <input type="search" id="search" placeholder="검색어 예)멋쟁이 사자처럼" name="search" />
+        </div>
+      </div>
+      <!--라디오 입력 서식-->
+      <div>
+        <input type="radio" id="male" name="gender" value="남자" checked />
+        <label for="male">남자</label>
+        <input type="radio" id="female" name="gender" value="여자" />
+        <label for="male">여자</label>
+      </div>
+      <!--체크박스 입력 서식-->
+      <div>
+        <input type="checkbox" id="html" name="frontend" value="마크업" checked />
+        <label for="html">HTML</label>
+        <input type="checkbox" id="css" name="frontend" value="스타일" />
+        <label for="css">CSS</label>
+        <input type="checkbox" id="js" name="frontend" value="스크립트" />
+        <label for="js">Jsvascript</label>
+      </div>
+      <!--파일 첨부 서식-->
+      <div>
+        <input type="file" />
+      </div>
+
+      <!--전송 버튼-->
+      <input type="submit" value="전송" />
+      <!--<button type="submit">제출</button>-->
+
+      <!--초기화 버튼-->
+      <!--일반 버튼-->
+      <input type="button" value="Click!" />
+    </form>
+    <input form="inputForm" type="reset" value="초기화" />
   </body>
 </html>
