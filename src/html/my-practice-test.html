@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습페이지 | Likelion Bootcamp</title>
+  </head>
+  <body>
+    <a href="/index.html">Index로 이동</a>
+    <hr />
+    <h1>연습페이지</h1>
+    <hr />
+    <h2>폼 input</h2>
+    <div>
+      <form id="inputForm" action="https://formspree.io/f/mjkqakgq" method="post">
+        <div>
+          <!--required는 논리속성으로 빈칸으로 전송시 경고나옴-->
+          <!--pattern은 다음과 같은 보안 수준을 요구-->
+          <label for="username">이름</label>
+          <input type="text" id="username" required placeholder="예)홍길동" name="name" />
+        </div>
+        <div>
+          <label for="password">비밀번호</label>
+          <input type="text" pattern="^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$" id="password" required placeholder="최소 8자리 이상" name="password" />
+        </div>
+        <div>
+          <input type="radio" id="male" name="gender" value="남자" checked />
+          <label for="male">남자</label>
+          <input type="radio" id="female" name="gender" value="여자" />
+          <label for="male">여자</label>
+        </div>
+        <div>
+          <input type="submit" value="전송" />
+          <input form="inputForm" type="reset" value="초기화" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
