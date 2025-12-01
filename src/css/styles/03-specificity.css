@@ -1,11 +1,24 @@
-/* 상속(자식이 스타일이 없을때 부모로부터 물려받음), 겹침(자식이 스타일을 가지고 있는 상태에서 상속주면 겹쳐짐), 우선순위 */
+/* 상속(자식이 스타일이 없을때 부모로부터 물려받음,직접지정보다 우선순위낮음), 겹침(자식이 스타일을 가지고 있는 상태에서 상속주면 겹쳐짐-내가 가진 값이 우선순위가 높음), 우선순위(p-같은 요소끼리의 우선순위는 나중에 선언된게 더 높음, but 요소 단위?가 다를때는 더 높은 단위꺼가 적용됨,예시로 class가 p보다 높음) */
 body {
   color: green;
-}
-p {
-  color: red;
 }
 
 .wrapper {
   color: blue;
+}
+/*id는 #으로 표시, class는 .으로, id가(높음) class랑 체급이 너무 달라서 잘 안씀*/
+#coding {
+  color: yellow;
+}
+
+body .wrapper p.note {
+  color: red;
+}
+
+body p.note.like {
+  color: purple;
+}
+/*!important가 우선순위 제일 높음 */
+.wrapper p {
+  color: skyblue !important;
 }
