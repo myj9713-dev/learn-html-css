@@ -1,0 +1,47 @@
+/*Position 레이아웃*/
+/*position:relative 으로 해당 클래스 움직일수있게됨. 왼쪽, 오른쪽은 한 방향만 설정하기*/
+.wrapper {
+  position: relative;
+  border: 1px solid black;
+}
+.frontend {
+  left: 50px;
+  top: 80px;
+  background-color: #000;
+  position: relative;
+  top: -100px;
+
+  span {
+    position: relative; /*해당 이동 위치 기준은 span의 부모요소 frontend기준 */
+    top: -5px;
+    left: -5px;
+    background-color: #ffc;
+    display: block;
+    padding: 10px; /*자식요소가 패딩 늘어나면, 부모요소도 같이 적용됨(값없을때는 둘다 auto 상태)*/
+  }
+}
+
+/*position:absolute*/
+.school {
+  span {
+    background-color: #cff;
+    position: absolute; /*화면에 떠 있는 개체. 본문 위에 띄어 놓은 상태(레이어)*/
+    top: 0px; /*wrapper를 맨위에 position: relative으로 설정해둔 상태라서 그것을 기준으로 top,right가 적용됨*/
+    right: 0px;
+    /* width: 200px;
+    height: 100px; */
+  }
+}
+
+/*position:fixed*/
+.likelion {
+  background-color: #ffc;
+  width: 100px; /*포지션 설정안하면 span이라 크기들 적용안됨, 블록으로 취급해야적용가능*/
+  height: 50px;
+  font-weight: 700;
+  text-align: center; /*정렬방법*/
+  align-content: center; /*정렬방법*/
+  position: fixed;
+  top: 0;
+  right: 0;
+}

@@ -1,0 +1,18 @@
+/*CSS 중첩(nesting)*/
+.frontend {
+  font-size: 10px;
+  padding: 20px;
+  border: 1px solid green;
+  /*&가 있으면 프론트엔드 클라스 요소 자체에 호버 적용, &가 없으면 프론트엔드 모든 자식요소중 마우스가 각각 올라갈때마다 적용*/
+  &:hover {
+    background-color: #fcf;
+  }
+  /*--현재 위치를 빈줄로. 관례상 {}안에 다른 요소 넣을때는 한줄 비워둠*/
+  p {
+    font-size: 2em;
+  }
+}
+
+/* .frontend:hover {
+  background-color: #ffc;
+} --프론트엔드 안에 사용하는 방법이 위에 있음*/
