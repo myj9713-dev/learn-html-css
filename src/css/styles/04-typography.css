@@ -1,0 +1,62 @@
+/* 타이포그래피 및 단위 */
+h1 {
+  /*웹 폰트 사용*/
+  font-family: 'SUIT Variable', sans-serif;
+}
+.like {
+  /*로컬 폰트 사용*/
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* 굵기 */
+h1 {
+  font-weight: 100;
+}
+
+/* 크기 */
+.frontend {
+  font-size: 20px;
+}
+.lion {
+  background-color: #ffc;
+  /* em -부모로부터 상속받은 값을 기준으로 적용 */
+  /* font-size: 1.5em; */
+  /* vw-웹화면 크기를 기준으로 적용, 범위지정하고 싶을때는 clamp(), 함수 사용*/
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.bootcamp {
+  /* rem-root를 기준으로 적용 */
+  font-size: 2rem;
+}
+
+/* 줄높이 */
+.lion {
+  /* 라인 하이트는 한줄의 높이 (숫자만 넣는 것을 number단위), 한글사용할때는 1.2, 1.5를 사용하는게 안전.(1을하면 ㅎ 위해 점 잘릴수도)*/
+  line-height: 1.5;
+}
+
+/*글꼴스타일*/
+em {
+  font-style: italic;
+}
+
+/*크기가 작은 대문자*/
+.lion {
+  font-variant: small-caps;
+}
+
+/* font 단축 속성 */
+.school {
+  background-color: #fcf;
+  /* font에 weight, style,variant,size,line height,font family가 단축되어 값만 입력됨 */
+  font:
+    bold italic small-caps 20px/1.5 Georgia,
+    serif;
+}
+
+/* 글자 그림자 */
+h1 {
+  /*첫번째는 x축, 두번째는 y축(위쪽으로 지정하고 싶으면 -), 10은 블러값, 색추가*/
+  text-shadow: 5px -5px 10px red;
+}
