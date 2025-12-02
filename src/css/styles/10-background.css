@@ -20,15 +20,16 @@
 /* background-image / repeat / position / size*/
 .container {
   border: 1px solid red;
-  margin-block: 20px;
+  margin-block: 20px; /*논리속성, 위아래에 여백 주기*/
+  /* , 기준으로 두번째 이미지에 스타일 적용됨*/
   /* background-size:
     contain,
     100px 50px;
-  background-image: url(/src/assets/images/tree.png), url(/src/assets/images/cloud.png);
-  background-repeat: no-repeat, no-repeat;
+  background-image: url(/src/assets/images/tree.png), url(/src/assets/images/cloud.png); (이미지 여러개 뒤에 쌓을 수 있음, 먼저 선언한게 맨위에 있음)
+  background-repeat: no-repeat, no-repeat; (배경 반복 설정, no repeat는 반복안함. 위 이미지랑 세트로 갯수 동일해야함)
   background-position:
     50% 0,
-    70% 0; */
+    70% 0; (x,y 좌표, 배경 이미지 위치 결정)*/
   /* background: pink url(/src/assets/images/rabbit.png) no-repeat 50% 0 / contain; */
   background:
     url(/src/assets/images/tree.png) no-repeat 50% 0 / contain,
