@@ -1,0 +1,87 @@
+/* 박스 모델 */
+/*p요소 사이 공백을 지우는 css방법,.frontend div,.frontend p 랑 이어짐*/
+.frontend {
+  font-size: 0;
+}
+
+/*span 값이 인라인 요소인것을 알아볼수있음, display사용하면 블록상자값으로 바꿀수있음*/
+.frontend span {
+  background-color: #ffc;
+  display: block;
+}
+
+.frontend p {
+  background-color: #fcf;
+  display: inline;
+}
+
+/*p요소 사이 공백을 지우는 css방법 */
+.frontend div,
+.frontend p {
+  font-size: 16px;
+}
+
+/* border 속성 , border의 모양, 크기, 색상 적용*/
+.frontend {
+  /* border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px; */
+  /* border-width: 1px; */
+
+  /* border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid; */
+  /* border-style: solid; */
+
+  /* border-top-color: red;
+  border-right-color: red;
+  border-bottom-color: red;
+  border-left-color: red; */
+  /* border-color: red; 위의 단축*/
+
+  /*단축의 최종 단축*/
+  border: 1px solid red;
+}
+
+/* padding 속성(안쪽 여백) */
+.frontend {
+  /* padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  padding-left: 40px; */
+  /*10은 위, 20은 좌우, 30은 밑, 40은 좌*/
+  padding: 10px 20px 30px 40px;
+}
+
+/*margin 속성 */
+.frontend {
+  /* margin: 10px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-left: 40px; */
+  /*하나만 입력하면 전부다 10으로 적용, margin은 (일반적으로 노멀일때) 겹쳐질때 병합현상 일어남. (예시-큰쪽(30)으로 작은 값(10)이 겹쳐져서 큰값(30)만 남음), */
+  margin: 10px;
+}
+
+/*width(가로크기), height(높이) 속성*/
+.bootcamp span:first-child {
+  /*첫번째 노란상자 길이가 변함*/
+  width: 100px;
+  /*2가로길이(예시-100) 대 1세로길이(예시-50)*/
+  aspect-ratio: 2/1;
+}
+.bootcamp span:last-child {
+  /*마지막 노란상자가 변함*/
+  width: 5em;
+  height: 5em;
+}
+
+/*overflow 속성(내용이 상자 크기보다 넘쳐흐를때 어떻게 표시할지 선택.(hidden은 넘친거 자름, scroll은 오른쪽이랑 아래쪽 스크롤바 생김, auto는 오른쪽만 스크롤바 생김)*/
+.school {
+  background-color: #cff;
+  width: 200px;
+  height: 150px;
+  overflow: auto;
+}
