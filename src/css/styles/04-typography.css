@@ -49,7 +49,7 @@ em {
 /* font 단축 속성 */
 .school {
   background-color: #fcf;
-  /* font에 weight, style,variant,size,line height,font family가 단축되어 값만 입력됨 */
+  /* font에 weight, style,variant(까지 1순위),size,line height,font family(까지 2순위)가 단축되어 값만 입력됨 */
   font:
     bold italic small-caps 20px/1.5 Georgia,
     serif;

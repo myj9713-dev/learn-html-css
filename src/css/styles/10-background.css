@@ -6,6 +6,7 @@
   color: rgba(255, 0, 0, 0.5); /* 이것이 옛날방식*/
   color: rgb(255 0 0 /0.5); /*마지막 /0.5는 투명도, 마지막에 작성된 스타일이 적용됨*/
   color: hsla(110, 50%, 20%, 0.5);
+  color: rgb(from #00f r g b/0.5); /*변수를 사용할때 유용*/
 }
 /*background-color 속성*/
 .wrapper {

@@ -51,7 +51,7 @@
   padding-right: 20px;
   padding-bottom: 30px;
   padding-left: 40px; */
-  /*10은 위, 20은 좌우, 30은 밑, 40은 좌*/
+  /*10은 위, 20은 우, 30은 밑, 40은 좌*/
   padding: 10px 20px 30px 40px;
 }
 
