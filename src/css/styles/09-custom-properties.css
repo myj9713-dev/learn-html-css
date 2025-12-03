@@ -1,1 +1,35 @@
 /*사용자 정의 속성*/
+@property --primary-color {
+  /*이미 property로 선언해놔서 어디에서든 사용가능*/
+  syntax: '<color>';
+  inherits: false; /*상속은 거절, ture하면 부모요소꺼 상속됨*/
+  initial-value: rgb(14, 118, 97);
+}
+
+/* 전역 변수 */
+:root {
+  --main-color: gray;
+  --default-color: pink;
+}
+
+body {
+  color: var(--primary-color);
+}
+
+.like {
+  background: var(--base-color, var(--default-color, red));
+}
+
+.wrapper {
+  --default-color: yellow;
+  --primary-color: red;
+
+  color: var(--primary-color);
+  margin-block: 20px;
+  border: 1px solid var(--main-color);
+  background: var(--default-color); /*속성값은 가장가까운것부터 사용함*/
+
+  .euid {
+    color: var(--primary-color);
+  }
+}
