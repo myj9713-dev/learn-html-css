@@ -1,1 +1,14 @@
-/* 접근성 관련 CSS */
+/* 접근성 관련 CSS(숨긴컨텐츠) */
+.sr-only {
+  position: absolute;
+  width: 1px; /*높이 너비는 0이면 안됨. 스크린리더가 포커싱을 못함, 최소한의 1px 필요*/
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: -1px; /*음수 마진 레이아웃, 상자의 크기를 줄일수있음*/
+  padding: 0;
+  border-width: 0;
+  clip-path: inset(50%);
+}
+
+/*clip-path: polygon(0 0, 0 0, 0 0); clip-path: 요소의 어느 부분이 보여야하는지 정의하는 속성. x,y좌표를 0 0으로(=이 다각형의 넓이는 0) 클리핑해서 화면에 보여줘=화면에 안보임 */
