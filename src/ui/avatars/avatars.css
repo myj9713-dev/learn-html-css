@@ -39,3 +39,20 @@
     }
   }
 }
+
+/* 아바타 레이아웃 */
+.avatar-list {
+  width: 596px;
+  height: 395px;
+  padding: 110px 130px;
+  box-shadow: 0 0 2px 1px currentColor; /*그림자는 위에 있는 높이너비에 포함이 안됨, 마지막1px 줘야 밖에 라인하나 보임*/
+
+  .avatar-item {
+    float: left; /*플롯은 공중에 떠서 다른 요소 위치에게 영향을 줘서 옆으로 미룸, but 부모요소 상자크기가 작으면 밑으로 내려감, 내가 배치할 수 있는 공간안에서만 유연하게 이동*/
+    margin: 10px;
+
+    &:nth-child(5) {
+      clear: left; /*이전 플롯 요소들로부터 영향을 받지 않음, 무조건 새로운 줄(독립된 줄)에서 시작*/
+    }
+  }
+}
