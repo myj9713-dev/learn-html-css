@@ -1,0 +1,52 @@
+/* 웹 관련 용어 */
+/* 컴포넌트(부품) */
+.term {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  display: flow-root;
+
+  strong {
+    color: #296897;
+    font-weight: 700;
+    margin-block-start: -3px; /*이미지랑 텍스트 글자 위에 끝을 맞추는 꼼수*/
+    margin-block-end: 4px;
+  }
+
+  strong,
+  p {
+    inline-size: calc(100% - 76px);
+    float: inline-end; /* 스타트, 엔드를 바꾸면 좌우 바뀜*/
+  }
+
+  img {
+    float: inline-start; /* 스타트, 엔드를 바꾸면 좌우 바뀜*/
+  }
+}
+/* 레이아웃 */
+.terms {
+  background: linear-gradient(to bottom, #ccc, #eee);
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 16px;
+
+  h2 {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-block-end: 16px;
+  }
+
+  .term {
+    margin-block-start: 12px;
+  }
+
+  div.term:nth-of-type(even) {
+    strong,
+    p {
+      float: inline-start;
+    }
+
+    img {
+      float: inline-end;
+    }
+  }
+}
