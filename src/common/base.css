@@ -1,13 +1,14 @@
 /* 기본적으로 모든 페이지에 설정하고 싶은 스타일 */
 /* css 예제 본문 스타일 */
-.css {
-  margin: 20px;
+/*a는 앵커태그(Index로 이동 부분임)*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  /*a는 앵커태그(Index로 이동 부분임)*/
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+/* 여백 */
+.spacing-20 {
+  margin: 20px;
 
   h1 {
     margin-block: 20px;

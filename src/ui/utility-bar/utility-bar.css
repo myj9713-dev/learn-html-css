@@ -1,0 +1,49 @@
+/* 유틸리티 바 */
+.utility-bar {
+  --spacing: 8px; /* 패딩값에 수정을하고싶을때 사용자정의속성을 설정하여 용이하게 만듬 */
+
+  font-size: 0.875rem;
+  display: flow-root;
+  text-transform: uppercase; /*영어 대문자로 변환*/
+  padding: calc(var(--spacing) / 2);
+  /* width: 350px;
+  float: left;  이중플로팅-노란색 박스 내용에 맞게 크기 조절 */
+
+  li {
+    float: inline-start;
+    display: flow-root; /* 요소들 사이의 여백을 float:flow-root로 없앰 */
+  }
+
+  span {
+    float: inline-start;
+    padding: calc(var(--spacing) / 2);
+  }
+
+  a {
+    float: inline-start;
+    padding: calc(var(--spacing) / 2); /* 앵커태그에 줘야 클릭 영역이 넓어짐 */
+  }
+}
+
+.utility-bar-before {
+  --spacing: 8px;
+
+  font-size: 0.875rem;
+  display: flow-root;
+  text-transform: uppercase;
+  padding: calc(var(--spacing) / 2);
+
+  li {
+    float: inline-start;
+  }
+
+  li:nth-child(n + 2)::before {
+    content: '|';
+  }
+
+  li:nth-child(n + 2)::before,
+  a {
+    float: left; /*앵커는 인라인상자라 패딩이 겹쳤음, 그래서 블록으로 바꿈, float로 지정하면 블록으로 인식됨*/
+    padding: calc(var(--spacing) / 2);
+  }
+}
