@@ -1,0 +1,46 @@
+/* 테이블 스타일링 */
+.members-wrapper {
+  /* background: var(--yellow); */
+  block-size: 500px;
+  overflow: auto;
+
+  .members {
+    inline-size: 100%; /* %는 부모크기 만큼 커지는것, width와 동일 */
+    border-inline: 1px solid var(--black); /*테이블 좌우에만 선을 지정*/
+  }
+
+  .nember {
+    inline-size: 15%;
+  }
+  .name {
+    inline-size: 25%;
+  }
+  .email {
+    inline-size: 30%;
+  }
+  .phone {
+    inline-size: 30%;
+  }
+
+  thead tr,
+  tfoot tr {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  thead tr {
+    position: sticky;
+    top: 0;
+  }
+
+  tr:nth-child(even) {
+    background: var(--gray);
+  }
+
+  th,
+  td {
+    padding: 1em;
+    text-align: center;
+    white-space: nowrap; /* 텍스트 줄바꿈 방식 제어, nowrap 적용하면 공백이 잇어도 줄바꿈 안함, 텍스트가 부모요소의 너비를 초과했을때, 부모요소가 overflow 적용되어 있으면 가로 스크롤바 생김 */
+  }
+}
