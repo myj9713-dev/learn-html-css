@@ -1,0 +1,119 @@
+/* flexbox 레이아웃 */
+div {
+  background: var(--yellow);
+
+  > div:nth-child(1) {
+    background: var(--pink);
+  }
+  > div:nth-child(2) {
+    background: var(--green);
+  }
+  > div:nth-child(3) {
+    background: var(--blue);
+  }
+  > div:nth-child(4) {
+    background: var(--coral);
+  }
+}
+
+/* flex - flex-direction */
+.like {
+  padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+
+  div:nth-child(even) {
+    order: 1;
+  }
+}
+
+/*flex-wrap, flex-flow(단축속성)*/
+.lion {
+  display: flex;
+  /* flex-direction: row-reverse;
+  flex-wrap: wrap;  wrap은 줄바꿈 처리, 없을때는 div 사이즈가 148px로 자동으로 줄어들었는데, wrap 하면 150px 그대로 나옴*/
+  flex-flow: wrap row-reverse; /*위에 두개를 단축해서 사용하는 방법*/
+  padding: 0.5em;
+  inline-size: 600px;
+
+  > div {
+    inline-size: 150px;
+  }
+}
+
+/* justify-content(메인, 주축 정렬), align-items(교차축 정렬) */
+.euid {
+  block-size: 200px;
+  padding: 0.5em;
+  display: flex;
+  /* flex-flow: nowrap column; norap은 줄바꿈하지 말라는 것
+  justify-content: center;  현재 주축이 column이라서 그거 기준으로 센터*/
+  flex-flow: nowrap row;
+  justify-content: space-evenly;
+  align-items: stretch; /*stretch(기본값) 부모 요소만큼 커짐, norap일때(한줄일때) 적용됨*/
+}
+
+/* align-content */
+.frontend {
+  display: flex;
+  inline-size: 400px;
+  block-size: 200px;
+  flex-flow: wrap row;
+  justify-content: start; /*기본 값, 없어도 출력 동일*/
+  /* align-items: start; 기본 값은 stretch, 없어도 출력 동일, norap일때(한줄일때) 적용됨*/
+  align-content: space-evenly; /* wrap일때(여러줄일때) 컨텐트를 사용 */
+
+  > div {
+    inline-size: 200px;
+  }
+}
+
+/* gap, item 사이에 여백 주는 것(디자인시스템상 guetter라 칭함)*/
+.bootcamp {
+  inline-size: 400px;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: start;
+  align-items: stretch; /*전체 정렬*/
+  /* padding: 1em; */
+  column-gap: 40px; /*컬럼 갭이라 좌우 사이 공백 생김*/
+  block-size: 200px;
+  /* gap: 20px; */
+
+  > div {
+    inline-size: 180px; /*gap 있을때 포함해서 계산해야 줄바꿈이 가능함*/
+  }
+
+  .bootcamp-item1 {
+    align-self: start; /*나만 정렬*/
+  }
+}
+
+/* flex, flex-grow, flex-srhink, flex-basis */
+.school {
+  display: flex;
+  flex-flow: nowrap row;
+  inline-size: 50%; /*%로 하면 부모요소 크기의 50%를 차지함*/
+
+  > div {
+    /*flex-grow: 1;  확대모델, 남는 여백을 균등하게 배분 */
+    /*flex-shrink: 1;  축소모델, 공간이 부족할 때 줄어드는 비율(모자란거만큼 줄어듬) */
+    /*flex-basis: 0;  확대 축소를 위한 기준값, 따로 안주면 auto , 0으로 하면 기준값이 없어서 같은 크기 한글자만큼 줄어듬*/
+
+    /* inline-size: 50px; flex-basis가 인라인 사이즈보다 우선 적용, 그래서 베이스와 같이 안씀*/
+    flex: 1 1 0; /* flex-grow, flex-shrink, flex-basis 순서 (단축) */
+  }
+
+  /* .school-item1 {
+    flex-grow: 1; 남은 여백을 1/10을 부여
+  }
+  .school-item2 {
+    flex-grow: 2;
+  }
+  .school-item3 {
+    flex-grow: 3;
+  }
+  .school-item4 {
+    flex-grow: 4;
+  } */
+}
