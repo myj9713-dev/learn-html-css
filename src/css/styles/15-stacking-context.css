@@ -1,0 +1,54 @@
+/*stacking context*/
+/*isolation 속성- 새로운 맥락을 쌓으며 생산할때 사용*/
+/* Cafe W 예시 */
+.cafe-w {
+  border: 10px solid currentColor;
+  inline-size: 500px; /*가로 크기*/
+  block-size: 200px; /*세로 크기*/
+  position: relative; /*배치는 이제 cafe-w 기준으로 배치될거임*/
+  background: var(--pink);
+  isolation: isolate; /* 내 자식요소는 나보다 뒤로가면 안됨!하고 설정하는 속성임- isolate는 항상 새로운 쌓임 맥락을 생성함,이 부모 요소 내부에 있는 모든 자식 요소들은 오직 이 새로운 쌓임 맥락 안에서만 z-index 순서를 비교하게 됨*/
+
+  .hero {
+    position: absolute; /*제자리 공중에 뜨게 됨, 다음 자식요소가 나랑 겹쳐져서 밑에 있음*/
+    inset: 0; /* top, right, bottom, left 전체적으로 0임, 부모크기에 맞춰서 꽉채움*/
+    z-index: -1; /*-1하면 cafe-w의 div보다 뒤로간거임, 그래서 cafe-w에서 설정한 배경색보다 뒤로간거*/
+    opacity: 0.5; /*투명도 0~1 설정가능*/
+  }
+
+  .star {
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  .text {
+    background: yellow;
+    padding: 1em;
+  }
+}
+
+/*z-index 속성*/
+.euid {
+  background: rgba(255, 255, 150, 0.5);
+  width: 500px;
+  height: 100px;
+  position: relative; /*부모요소에서 자식요소들이 이동하길 원해서 relative 성정한거임*/
+
+  .like {
+    background: skyblue;
+    position: absolute; /*obset 설정안하면 제자리에 떠있음, 크기 지정안하면 인라인 상자라 컨텐츠 크기만큼 됨*/
+    z-index: -1; /* 마이너스하면 body 뒤로 이동*/
+    bottom: 0; /*이게 obset 속성임 */
+  }
+  .lion {
+    background: orange;
+    position: relative;
+    z-index: 1;
+  }
+  .bootcamp {
+    background: pink;
+    position: relative; /* 공중에 떠있게 되었음*/
+    top: -5px;
+    left: 10px;
+  }
+}
