@@ -1,0 +1,32 @@
+/*검색어 입력서식*/
+.search-bar {
+  background: yellow;
+
+  .circle-gradient {
+    --size: 24px;
+    --start-color: red;
+    --end-color: green;
+
+    background: linear-gradient(var(--start-color), var(--end-color));
+    border: 0;
+    padding: 0;
+    width: var(--size);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+
+    &::before {
+      --inner-size: calc(var(--size) / 3); /* 이캐 계산하면 1/3이 8px로 나옴*/
+
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%; /* 이동하는 기능 */
+      width: var(--inner-size);
+      aspect-ratio: 1/1;
+      background: #fff;
+      border-radius: inherit; /* 부모 속성 상속*/
+    }
+  }
+}
