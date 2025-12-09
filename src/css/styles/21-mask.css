@@ -1,0 +1,30 @@
+/*CSS mask */
+.like {
+  background: red;
+  display: inline-block;
+  padding: 20px;
+  height: 100px;
+  border: 10px solid green;
+
+  mask-image: url(/src/assets/svg/star.svg);
+  mask-origin: padding-box; /*mask 시작 시점 설정*/
+  mask-repeat: no-repeat; /*반복안함*/
+  mask-size: 50px 50px; /*가로,세로*/
+  mask-position: 0 0; /*마스크의 포지션이 왼쪽에서 시작할거냐, 오른쪽에서 시작할꺼냐*/
+  transition: all 3s; /*CSS 속성 값이 바뀔 때, 그 변화를 즉각적으로 발생시키지 않고 일정 시간 동안 부드럽게 일어나도록 만드는 역할*/
+
+  &:hover {
+    mask-position: 100% 0;
+  }
+}
+
+/*CSS 마스크로 만드는 더보기 버튼*/
+button {
+  background: green; /*여기서 마스크 이미지 색이랑 크기 조절 가능*/
+  width: 24px;
+  height: 24px;
+  border: 0;
+  padding: 0;
+
+  mask-image: linear-gradient(to bottom, transparent 0% 35%, #000 35% 65%, transparent 65% 100%), linear-gradient(to right, transparent 0% 35%, #000 35% 65%, transparent 65% 100%); /*transparent 투명은 배경이미지(green) 안보임*/
+}
