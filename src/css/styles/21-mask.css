@@ -10,7 +10,7 @@
   mask-origin: padding-box; /*mask 시작 시점 설정*/
   mask-repeat: no-repeat; /*반복안함*/
   mask-size: 50px 50px; /*가로,세로*/
-  mask-position: 0 0; /*마스크의 포지션이 왼쪽에서 시작할거냐, 오른쪽에서 시작할꺼냐*/
+  mask-position: 0 0; /*마스크 위치의 x, y 좌표값*/
   transition: all 3s; /*CSS 속성 값이 바뀔 때, 그 변화를 즉각적으로 발생시키지 않고 일정 시간 동안 부드럽게 일어나도록 만드는 역할*/
 
   &:hover {
