@@ -1,13 +1,133 @@
-/*검색어 입력서식*/
-.search-bar {
-  background: yellow;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+
+/* 검색어 입력서식
+.searchbar {
+  --green-100: #03cc5c;
+  --green-200: #1bf008;
+  --green-300: #03cca8;
+
+  --gray-100: #bcc3c7;
+  --gray-200: #9b9a90;
+  --gray-300: #6d7478;
+
+  display: flex;
+  flex-flow: nowrap row;
+  column-gap: 12px; 로고랑 폼 사이 공백
+  padding: 12px 12px 12px 20px;
+  border: 1px solid var(--green-100);
+  border-radius: 24px;
+
+  svg {
+    flex-shrink: 0; N 이 화면이 작아졌을때 축소가 안되게 따로 설정, 안전을 위해 넣어둔것
+  }
+
+  .searchbar-form {
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: start; x축값
+    align-items: start; y축 값, 동글이가 위아래로 안늘어나게 설정
+    column-gap: 12px; 동글이랑 검색바 사이 공백 
+    flex-grow: 1; flex item이 컨테이너 남은 여유 공간을 확장하여 차지, 아이템이 여러개일때는 다른 아이템과 비교하여 여유공간을 나누는 비율로 작용, 예시, 아이템a-1, 아이템b-2 아이템c-1 각 이렇게 주면, 1/4, 2/4, 1/4로 가져감
+  }
+
+  .input-wrapper {
+    flex-grow: 1;
+
+    input {
+      width: 100%; 자식인 검색어바가 부모요소만큼 너비 차지
+      height: 24px;
+    }
+  }
 
   .circle-gradient {
     --size: 24px;
-    --start-color: red;
-    --end-color: green;
+    --start-color: var(--green-200, #1bf008);
+    --end-color: var(--green-300, #03cca8);
 
-    background: linear-gradient(var(--start-color), var(--end-color));
+    background: linear-gradient(135deg, var(--start-color), var(--end-color));
+    border: 0;
+    padding: 0;
+    width: var(--size);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0; 동글이 화면이 작아졌을때 축소가 안되게 따로 설정
+
+    &::before {
+      --inner-size: calc(var(--size) / 3); 이캐 계산하면 1/3이 8px로 나옴
+
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%; 이동하는 기능
+      width: var(--inner-size);
+      aspect-ratio: 1/1;
+      background: #fff;
+      border-radius: inherit; 부모 속성 상속
+    }
+  }
+} */
+/*display:contents 속성사용하기*/
+.searchbar {
+  --green-100: #03cc5c;
+  --green-200: #1bf008;
+  --green-300: #03cca8;
+  --gray-100: #bcc3c7;
+  --gray-200: #9b9a90;
+  --gray-300: #6d7478;
+
+  --border-color: var(--green-100);
+
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: start;
+  align-items: start;
+  column-gap: 12px;
+  padding: 12px 12px 12px 20px;
+  border-radius: 48px;
+
+  &:focus-within {
+    box-shadow: 0 2px 2px 0 var(--gray-300);
+  }
+
+  .searchbar-form,
+  .input-wrapper {
+    display: contents;
+  }
+
+  svg {
+    display: block; /*아니면 이거도 사용가능(vertical-align: top;) svg가 인라인 상자라 밑에 공백 조금 있는거 없애는 방법, 아예 블록으로 취급해서 공백없애겠다.*/
+  }
+
+  .logo,
+  .circle-gradient {
+    flex: 0 0 auto;
+  }
+
+  input {
+    flex: 1 1 0;
+    margin-right: 4px;
+    height: 24px;
+    border: 0;
+    min-width: 0; /* 입력서식이 가지는 웹브라우저 스타일 제거, 원 스타일에는 정해진 크기를 벗어나면 동글이가 자리에서 벗어남*/
+    background: transparent;
+    outline: none;
+  }
+
+  /* X 버튼은 Safari, Chrome, Edge, Opera 등 webkit 및 blink 엔진을 사용하는 웹브라우저의 기본 스타일 */
+  /* X 버튼을 제거하고 싶다면 :-webkit-search-cancel-button 선택자를 사용하여 display 속성 값을 none으로 지정 */
+  [type='search']::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .circle-gradient {
+    --size: 24px;
+    --start-color: var(--green-200, #1bf008);
+    --end-color: var(--green-300, #03cca8);
+
+    background: linear-gradient(135deg, var(--start-color), var(--end-color));
     border: 0;
     padding: 0;
     width: var(--size);
@@ -16,17 +136,63 @@
     position: relative;
 
     &::before {
-      --inner-size: calc(var(--size) / 3); /* 이캐 계산하면 1/3이 8px로 나옴*/
+      --inner-size: calc(var(--size) / 3);
 
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
-      translate: -50% -50%; /* 이동하는 기능 */
+      /* transform: translate(-50%, -50%) rotate(); */
+      translate: -50% -50%;
       width: var(--inner-size);
       aspect-ratio: 1/1;
       background: #fff;
-      border-radius: inherit; /* 부모 속성 상속*/
+      border-radius: inherit;
     }
+  }
+}
+
+/* vertical-align 속성 */
+.likelion {
+  background: yellow;
+  margin-block: 20px;
+
+  span {
+    background: pink;
+    font-size: 24px;
+  }
+
+  em {
+    background: lime;
+    vertical-align: top; /*인라인상자의 배치위치, 베이스를 top,bottom,middle 어디에둘지 결정*/
+  }
+
+  strong {
+    background: orange;
+    vertical-align: middle;
+  }
+}
+
+/* 텍스트 로고 */
+.text-logo {
+  --size: 34.7504px;
+  --start-color: var(--green-200);
+  --end-color: var(--green-300);
+
+  display: inline-flex; /*인라인 플렉스는 내용물 크기만큼 너비 차지, 다음 인라인 요소 같은 줄 옆으로 배치, 그냥 flex는 부모요소만큼 차지, 다음 요소 줄바꿈일어남*/
+  flex-flow: nowrap row;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--size) * 0.7); /*자식에서 라인 높이 줄이고, 부모요소에서 너비를 줄임, 글자 많이넣으려면 이 속성 없어야됨(범위가 지정되서 한곳으로 쏠림)*/
+
+  .text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: var(--size);
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--start-color, #1bf008), var(--end-color, #03cca8));
+    color: transparent; /*투명하게 만들어서, 배경 보이게 만듬*/
+    background-clip: text; /* 배경색을 글자모양으로 잘라라*/
+    line-height: 0.7; /*라인의 높이를 줄임*/
   }
 }
