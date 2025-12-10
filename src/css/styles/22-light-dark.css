@@ -1,0 +1,24 @@
+/* 라이트/ 다크 모드 */
+/*라이크모드 스타일*/
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  background: yellow;
+  color: green;
+  /* 다크모드 스타일 -부모요소안에 있음*/
+  @media (prefers-color-scheme: dark) {
+    body {
+      /* background: #000;
+      color: #fff;  */
+      background: purple;
+      color: white;
+    }
+  }
+}
+
+body {
+  color: light-dark(#333b3c, #efefec);
+  background-color: light-dark(#efedea, #223a2c);
+}
