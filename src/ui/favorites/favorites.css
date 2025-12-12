@@ -1,0 +1,39 @@
+/* 웹카페 인기 사이트 */
+.favorites {
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+
+    span {
+      color: orangered;
+    }
+  }
+
+  ol {
+    margin-block-start: 10px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    block-size: 36px; /* overflow:hidden을 주려고 부모요소에도 높이사이즈 지정 */
+    overflow: hidden;
+    /* transition: all 0.2s 0s ease-in-out; 지속은 0초, 천천히시작, 천천히 끝 */
+    transition:
+      block-size 0.6s 0s ease-in-out,
+      padding-block 0.6s 0.6s ease-in-out;
+
+    &:hover {
+      padding-block: 20px;
+      block-size: auto; /* 원래는 auto하면 애니메이션 적용이안됨, 애니메이션은 시작과 끝이 있어야되서  */
+      interpolate-size: allow-keywords; /* 해당 속성을 사용해서 (이제 키워드도 적용될꺼야 하면서)auto에 애니메이션 적용이 가능하게됨 */
+      /* block-size: calc-size(auto, size); */
+    }
+
+    a {
+      /* background: yellow; */
+      display: block;
+      block-size: 36px;
+      align-content: center;
+      /* padding-inline-start: 24px; */
+      text-indent: 24px; /* 블록요소라 첫줄 들여쓰기 가능 */
+    }
+  }
+}

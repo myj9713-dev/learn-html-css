@@ -1,0 +1,57 @@
+/* 이디야 News UI */
+:root {
+  --white: #fff;
+  --gray: #878787;
+  --gray-dark: #14182c;
+  --blue-100: #3030e0;
+  --blue-200: #24388d;
+  --blue-300: #111166;
+
+  --start-color: var(--blue-100);
+  --end-color: var(--blue-300);
+}
+/* 새소식 - grid  레이아웃 */
+.news {
+  /* box-shadow: 0 0 0 1px red; */
+  background: var(--blue-300);
+  color: var(--white);
+  display: grid;
+  min-inline-size: 320px;
+  grid-template-columns: minmax(200px, 1pr) max-content;
+  gap: 8px;
+  padding: 16px;
+
+  .news-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-block-end: 8px;
+  }
+
+  .news-list,
+  .news-item {
+    display: contents; /*무시설정줘서 자식요소가 바로 적용되게 만듬*/
+  }
+
+  .news-list {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    /* font-weight: 400;  기본이 400사이즈*/
+
+    a {
+      /* background: purple; */
+      white-space: nowrap; /* 줄바꿈 금지 */
+      overflow: hidden;
+      text-overflow: ellipsis; /* 텍스트 오버된거를 ...말줄임으료 표현하는 방법, white-space, overflow, text-overflow 같이 사용해야함 */
+    }
+  }
+
+  .more {
+    grid-area: 1 / 2; /* 4개로  row, column 스타트 엔드 설정가능, 열이 하나하면 2개만 써도됨 */
+    /* justify-self: end;
+    align-self: start; */
+    place-self: start end;
+  }
+}
