@@ -2,4 +2,180 @@
 @import '/src/common/theme.css';
 @import '/src/common/a11y.css';
 @import '/src/common/base.css';
-@import "/src/common/animation.css";
+@import '/src/common/animation.css';
+
+/* 1. 전역 CSS 변수 (유지보수 용이성 극대화) */
+:root {
+  /* 색상 팔레트 */
+  --color-primary: #007bff;
+  --color-bg-light: #f8f9fa;
+  --color-bg-white: #ffffff;
+  --color-border: #e9ecef;
+  --color-text: #343a40;
+  --color-ui: #28a745;
+  --color-css: #ffc107;
+  --color-html: #dc3545;
+  --color-list-bg: #fcfcfc; /* 리스트 배경색 변수화 */
+
+  /* 레이아웃 변수 */
+  --spacing-default: 30px;
+  --spacing-small: 20px;
+  --border-radius-default: 12px;
+  --border-radius-list: 8px;
+  --box-shadow-default: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. 기본 스타일 및 초기화 */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--color-bg-light);
+  color: var(--color-text);
+  margin: 0;
+  padding: var(--spacing-default);
+  line-height: 1.6;
+}
+
+/* 3. ⭐️ 레이아웃 핵심: Grid Template Areas 사용 */
+.list-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-default);
+  background-color: var(--color-bg-white);
+  box-shadow: var(--box-shadow-default);
+  border-radius: var(--border-radius-default);
+
+  display: grid;
+  gap: var(--spacing-default);
+
+  /* 템플릿 영역 정의: h1은 상단에 꽉, 목록은 3열 */
+  grid-template-areas:
+    'header header header'
+    'ui css html';
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* 4. 제목 (h1) 스타일 */
+.list-wrapper h1 {
+  grid-area: header;
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 2.8em;
+  padding-bottom: var(--spacing-small);
+  margin-top: 0;
+  margin-bottom: var(--spacing-small);
+  border-bottom: 3px solid var(--color-border);
+}
+
+/* 5. 각 목록 섹션에 영역 할당 */
+.ui-list {
+  grid-area: ui;
+}
+.css-list {
+  grid-area: css;
+}
+.html-list {
+  grid-area: html;
+}
+
+/* 6. 목록 섹션 (.list) 공통 스타일 */
+.list {
+  padding: 25px;
+  background-color: var(--color-list-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-list);
+  /* transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease; */
+}
+
+/* .list:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12); }/* 그림자 강화 */
+
+/* 7. 목록 제목 (h2) 스타일 및 색상 구분 */
+.list h2 {
+  font-size: 1.8em;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid;
+  font-weight: 700;
+}
+
+.ui-list h2 {
+  color: var(--color-ui);
+  border-bottom-color: var(--color-ui);
+}
+.css-list h2 {
+  color: var(--color-css);
+  border-bottom-color: var(--color-css);
+}
+.html-list h2 {
+  color: var(--color-html);
+  border-bottom-color: var(--color-html);
+}
+
+/* 8. 목록 아이템 (ul, li, a) 스타일 */
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  border-bottom: 1px dashed #e9ecef;
+}
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+.list li a {
+  display: block;
+  text-decoration: none;
+  color: var(--color-text);
+  padding: 10px 15px;
+  /* transition:
+    background-color 0.2s,
+    color 0.2s; */
+}
+
+.list li a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg-white);
+  border-radius: 4px;
+}
+
+/* 9. 반응형 디자인 */
+@media (max-width: 992px) {
+  .list-wrapper {
+    grid-template-areas:
+      'header header'
+      'ui css'
+      'html html'; /* HTML 목록을 하단에 2칸 차지하도록 배치 */
+    grid-template-columns: 1fr 1fr;
+  }
+  .list-wrapper h1 {
+    font-size: 2.2em; /* 작은 화면에서 제목 크기 줄임 */
+  }
+}
+
+@media (max-width: 600px) {
+  .list-wrapper {
+    grid-template-areas:
+      'header'
+      'ui'
+      'css'
+      'html';
+    grid-template-columns: 1fr;
+    gap: var(--spacing-small);
+    padding: var(--spacing-small);
+  }
+  .list-wrapper h1 {
+    font-size: 1.8em;
+  }
+  body {
+    padding: var(--spacing-small);
+  }
+}
