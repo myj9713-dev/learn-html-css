@@ -429,5 +429,9 @@
     .grid-double {
       grid-column: span 2;
     }
+
+    .iphone15 {
+      background-position: 50% 65%;
+    }
   }
 }
