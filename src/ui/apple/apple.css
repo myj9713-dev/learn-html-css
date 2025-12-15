@@ -31,7 +31,7 @@
   --line-normal: 1.5; /* 부제목 줄간격 */
 }
 /* 컴포넌트 */
-.c-product-showcase {
+/* .c-product-showcase {
   background: var(--black);
   min-height: 100vh;
   color: var(--white);
@@ -249,6 +249,185 @@
     }
     .airpods-pro .image-placeholder {
       background-image: url('/src/assets/apple/airpods_pro_2x.jpeg');
+    }
+  }
+} */
+
+/* 애플 카드 컴포넌트 */
+.product-card {
+  background: skyblue;
+  height: 580px;
+  padding-top: 40px;
+  text-align: center;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  background-color: var(--white);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+
+  @media (width>= 1024px) {
+    padding-top: 60px;
+    height: 625px;
+
+    &.dark-bg {
+      background-color: var(--black);
+      color: white;
+    }
+  }
+  > * {
+    margin-bottom: 12px;
+  }
+
+  .headline {
+    font-size: 32px;
+    line-height: 1;
+
+    @media (width >= 1024px) {
+      font-size: 40px;
+    }
+  }
+
+  .description {
+    font-size: 19px;
+
+    &.line-break span {
+      display: block;
+    }
+
+    @media (width >= 1024px) {
+      font-size: 21px;
+    }
+  }
+
+  .release {
+    font-size: 17px;
+    color: var(--gray);
+  }
+
+  .link-wrapper {
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: center;
+    column-gap: 12px;
+
+    @media (width>= 1024px) {
+      column-gap: 16px;
+    }
+
+    .fill,
+    .outline {
+      padding: 8px 12px;
+      font-size: 12px;
+      border-radius: 24px;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:focus-visible {
+        box-shadow: 0 0 1px 2px var(--red);
+      }
+
+      @media (width >= 1024px) {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+    }
+
+    .fill {
+      background: var(--blue-200);
+      color: #fff;
+    }
+
+    .outline {
+      border: 1px solid currentColor;
+      color: var(--blue-200);
+    }
+
+    &.link-black {
+      .fill {
+        background: var(--black);
+      }
+
+      .outline {
+        color: var(--black);
+      }
+    }
+  }
+}
+
+/* 배경 이미지 */
+.ipad-pro {
+  background-image: image-set(url(/src/assets/apple/ipad_pro.avif) 1x, url(/src/assets/apple/ipad_pro_2x.avif) 2x);
+
+  @media (width >= 1024px) {
+    background-image: image-set(url(/src/assets/apple/ipad_pro_wide.avif) 1x, url(/src/assets/apple/ipad_pro_wide_2x.avif) 2x);
+  }
+}
+
+.ipad-air {
+  background-image: image-set(url(/src/assets/apple/ipad_air.avif) 1x, url(/src/assets/apple/ipad_air_2x.avif) 2x);
+
+  @media (width >= 1024px) {
+    background-image: image-set(url(/src/assets/apple/ipad_air_wide.avif) 1x, url(/src/assets/apple/ipad_air_wide_2x.avif) 2x);
+  }
+}
+
+.iphone15-pro {
+  background-image: image-set(url(/src/assets/apple/iphone15_pro.avif) 1x, url(/src/assets/apple/iphone15_pro_2x.avif) 2x);
+
+  @media (width >= 1024px) {
+    background-image: image-set(url(/src/assets/apple/iphone15_pro_wide.avif) 1x, url(/src/assets/apple/iphone15_pro_wide_2x.avif) 2x);
+  }
+}
+
+.iphone15 {
+  background-image: image-set(url(/src/assets/apple/iphone15.avif) 1x, url(/src/assets/apple/iphone15_2x.avif) 2x);
+}
+
+.apple-watch {
+  background-image: image-set(url(/src/assets/apple/apple_watch.avif) 1x, url(/src/assets/apple/apple_watch_2x.avif) 2x);
+}
+
+.macbook-air {
+  background-image: image-set(url(/src/assets/apple/macbook_air.avif) 1x, url(/src/assets/apple/macbook_air_2x.avif) 2x);
+}
+
+.airpods-pro {
+  background-image: image-set(url(/src/assets/apple/airpods_pro.avif) 1x, url(/src/assets/apple/airpods_pro_2x.avif) 2x);
+}
+
+/* .ipad-pro {
+  background-image: url(/src/assets/apple/ipad_pro.avif);
+
+  @media (width>= 1024px) {
+    background-image: url(/src/assets/apple/ipad_pro_wide.avif);
+  }
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .ipad-pro {
+    background-image: url(/src/assets/apple/ipad_pro_2x.avif);
+
+    @media (width>= 1024px) {
+      background-image: url(/src/assets/apple/ipad_pro_wide_2x.avif);
+    }
+  }
+} */
+
+/* 애플 레이아웃 */
+.product-list {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr);
+  gap: 20px;
+
+  @media (width>= 1024px) {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    grid-auto-flow: dense;
+
+    .grid-double {
+      grid-column: span 2;
     }
   }
 }
