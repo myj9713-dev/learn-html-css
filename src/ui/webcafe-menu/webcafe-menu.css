@@ -1,0 +1,80 @@
+/* 웹카페 메뉴 */
+.menu-item {
+  /* background: yellow; */
+
+  .menu-button {
+    border-radius: 4px;
+    border: 1px solid #000;
+    padding: 0.75em 1.5em;
+    font-weight: 700;
+    background: #e85e2c linear-gradient(to bottom, #ef9126 0%, #e85e2c 35%, #e85e2c 70%, #ef9126 100%);
+    color: #fff;
+    text-shadow:
+      1px 1px 0 #000,
+      -1px -1px 0 #000;
+    /* anchor-name: --manu-button; */
+  }
+
+  .sub-menu {
+    /* background: pink; */
+    /* position: absolute; */
+    /* position-anchor: manu-button; */
+    /*position-area: right; -나의 주변에 배치-값: top,bottom,left, right, start(top left 위치 동일), end(bottom right)*/
+    /*left: anchor(left);
+    top: calc(anchor(bottom) + 4px);  calc를 사용해서 앞에 있는 좌표값에 4px을 더한것 */
+    inset: unset; /* top,right,bottom,left 의 속기법 , unset은 기본적으로 있는 값을 삭제한것*/
+    inset-inline-start: anchor(left);
+    inset-block-start: calc(anchor(bottom) + 4px); /*이 값이 밑에 left, top anchor와 동일, left:anchor와 position-area와 같이 사용하지 못함*/
+
+    &:popover-open {
+      display: flex;
+      flex-flow: nowrap row;
+      column-gap: 12px;
+      padding-left: 4px;
+      border: 0;
+
+      a {
+        display: block;
+        padding: 4px;
+
+        &:hover,
+        &:focus {
+          font-weight: 700;
+          color: #e85e2c;
+          text-decoration: underline;
+          text-underline-offset: 8px;
+          outline: 0;
+        }
+      }
+    }
+  }
+}
+
+/* 레이아웃 */
+.navigation {
+  /* box-shadow: 0 0 0 5px green; */
+  padding-bottom: 45px;
+  width: max-content;
+
+  /* 이 속성 적용이 안된다..더 찾아
+   .sub-menu:nth-child(n + 4) {
+    inset: unset;
+    inset-inline-end: anchor(right);
+    inset-block-start: calc(anchor(bottom) + 4px);
+  } */
+
+  .menu {
+    /* background: pink; */
+    display: grid;
+    grid-template-columns: repeat(6, max-content);
+    column-gap: 16px;
+
+    .menu-accessibility,
+    .menu-qna,
+    .menu-archive {
+      inset: unset;
+      inset-inline-end: anchor(right);
+      inset-block-start: calc(anchor(bottom) + 4px);
+    }
+  }
+}

@@ -10,6 +10,64 @@
   --start-color: var(--blue-100);
   --end-color: var(--blue-300);
 }
+
+/* notice 공지사항-grid 레이아웃 */
+.notice {
+  --spacing: 12px;
+
+  background: var(--blue-300);
+  display: grid;
+  min-width: 320px;
+  grid-template-columns: 125px minmax(200px, 1fr);
+  border: 1px solid var(--gray);
+
+  h2,
+  div {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  h2 {
+    padding: var(--spacing); /*안쪽으로 여백주기*/
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  div {
+    place-self: end; /* justify-self, align-self 의 속기법*/
+    display: flex;
+    flex-flow: nowrap row;
+    padding: var(--spacing);
+
+    button {
+      /*all: unset; 버튼이 가지고 있는 모든 기본 스타일을 다 없애라, but 접근성에 안좋음, tab으로 이동 못함*/
+      border: 0;
+      padding: 0;
+      background: none;
+
+      svg {
+        /* vertical-align: top; */
+        display: block;
+      }
+    }
+  }
+
+  article {
+    padding: var(--spacing);
+    background: #fff;
+
+    h3 {
+      color: var(--blue-200);
+    }
+
+    p {
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      margin-top: 10px;
+    }
+  }
+}
+
 /* 새소식 - grid  레이아웃 */
 .news {
   /* box-shadow: 0 0 0 1px red; */
@@ -53,5 +111,42 @@
     /* justify-self: end;
     align-self: start; */
     place-self: start end;
+  }
+}
+
+/* 고객 감사 영상-iframe 요소 */
+/* padding 속성에 백분율 값을 활용한 반응형 iframe */
+/* .ediya-youtube {
+
+  figure {
+    position: relative;
+    height: 0;
+    padding-top: 56.25%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+} */
+
+/* aspect-ration 속성을 활용한 반응형 iframe */
+.ediya-youtube {
+  box-shadow: 0 0 0 5px red;
+
+  figure {
+    aspect-ratio: 16 / 9;
+    position: relative;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }

@@ -12,9 +12,9 @@
     order: -1;
 
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 100%; /* figure 요소의 aspect-ratio를 기준으로 삼음 */
+      height: 100%; /* figure 요소의 aspect-ratio를 기준으로 삼음 */
+      object-fit: cover; /* 이미지 원본 비율을 유지하면서 컨테이너를 채울지, 컨테이너에 맞게 늘리거나 자를지 결정 */
       object-position: 30% 40%;
     }
   }
